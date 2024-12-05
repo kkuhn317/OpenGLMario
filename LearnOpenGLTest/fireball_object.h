@@ -1,5 +1,4 @@
 #pragma once
-#pragma once
 #ifndef FIREBALLOBJECT_H
 #define FIREBALLOBJECT_H
 

@@ -3,8 +3,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-
-#include "game_level.h"
+#include <glm/glm.hpp>
 
 // Represents the current state of the game
 enum GameState {
@@ -13,7 +12,7 @@ enum GameState {
 	GAME_LUIGI_WIN
 };
 
-// Initial size of the player paddle
+// Initial size of the players
 const glm::vec2 PLAYER_SIZE(32.0f, 64.0f);
 // Ground level
 const float GROUND_HEIGHT = 64.0f;
@@ -30,8 +29,6 @@ public:
     GameState               State;
     bool                    Keys[1024];
     unsigned int            Width, Height;
-    std::vector<GameLevel>  Levels;
-    unsigned int            Level;
     // constructor/destructor
     Game(unsigned int width, unsigned int height);
     ~Game();
