@@ -160,7 +160,15 @@ void Game::ProcessInput(float dt)
         if (LshootPressed) {
             Luigi->Shoot();
         }
-    }
+	}
+	else if (this->State == GAME_MARIO_WIN || this->State == GAME_LUIGI_WIN)
+	{
+		if (this->Keys[GLFW_KEY_SPACE])
+		{
+			this->State = GAME_ACTIVE;
+			ResetPlayer();
+		}
+	}
 }
 
 void Game::Render()
@@ -255,12 +263,15 @@ void Game::ResetLevel()
 
 void Game::ResetPlayer()
 {
-    // reset player/ball stats
-    Mario->Size = PLAYER_SIZE;
-    Mario->Position = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f, this->Height - PLAYER_SIZE.y);
-	
-	Luigi->Size = PLAYER_SIZE;
-	Luigi->Position = glm::vec2(this->Width / 2.0f - PLAYER_SIZE.x / 2.0f, this->Height - PLAYER_SIZE.y);
+    // reset player positions
+	Mario->Position = glm::vec2(0, this->Height - PLAYER_SIZE.y - GROUND_HEIGHT);
+	Luigi->Position = glm::vec2(500, this->Height - PLAYER_SIZE.y - GROUND_HEIGHT);
+	// reset player health
+	Mario->Health = 100.0f;
+	Luigi->Health = 100.0f;
+	// reset fireballs
+	Mario->fireballs.clear();
+	Luigi->fireballs.clear();
 }
 
 // collision detection

@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LibraryPath>C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
-    <IncludePath>C:\OpenGL\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>lib;C:\OpenGL\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>includes;C:\OpenGL\includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -157,6 +157,11 @@
     <ClInclude Include="game.h" />
     <ClInclude Include="game_level.h" />
     <ClInclude Include="game_object.h" />
+    <ClInclude Include="includes\glad\glad.h" />
+    <ClInclude Include="includes\GLFW\glfw3.h" />
+    <ClInclude Include="includes\GLFW\glfw3native.h" />
+    <ClInclude Include="includes\KHR\khrplatform.h" />
+    <ClInclude Include="includes\shader_s.h" />
     <ClInclude Include="player_object.h" />
     <ClInclude Include="resource_manager.h" />
     <ClInclude Include="shader.h" />
@@ -183,6 +188,9 @@
     <Image Include="textures\players\mario_walk1.png" />
     <Image Include="textures\players\mario_walk2.png" />
     <Image Include="textures\players\mario_walk3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="lib\glfw3.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
